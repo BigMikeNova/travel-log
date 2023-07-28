@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/tavel-log', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/traveler-db', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
