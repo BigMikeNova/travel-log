@@ -11,7 +11,7 @@ const App = () => {
       <Switch>
         <Route path="/" exact component={LoginPage} />
         <ProtectedRoute path="/home" component={HomePage} />
-        <ProtectedRoute path="/profile" component={ProfilePage} />
+        <ProtectedRoute path="/profile/:userId" component={ProfilePage} />
       </Switch>
     </Router>
   );
