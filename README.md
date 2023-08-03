@@ -16,6 +16,10 @@ Currency type
 IMAGES
 ```
 
+## User Flow
+
+![image](https://github.com/BigMikeNova/travel-log/assets/125073452/c1dbc340-784c-4a4e-a93b-a6a3fdfeda33)
+
 ## ToDo's
 
 ```
