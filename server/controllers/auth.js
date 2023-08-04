@@ -35,4 +35,23 @@ export const register = async (req, res) => {
     } catch (error) {
         res.status(500).json(error);
     }
-}
+};
+
+// login
+
+export const login = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const user = await User.findOne({ email: email });
+        if (!user) return res.status(404).json({ msg: 'user not found' });
+
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) return res.status(400).json({ msg: 'icorrect password' });
+
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+        delete user.password;
+        res.status(200).json({ user, token });
+    } catch (error) {
+        res.status(500).json(error);
+    }
+};
