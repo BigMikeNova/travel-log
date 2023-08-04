@@ -5,10 +5,13 @@
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
-    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "develop": "npm run watch-server & npm run start-client",
     "install": "cd server && npm i && cd ../client && npm i",
+    "watch-server": "cd server && npm run watch",
+    "start-client": "cd client && npm start",
     "seed": "cd server && npm run seed",
-    "build": "cd client && npm run build"
+    "build": "cd client && npm run build",
+    "deploy": "cd client && npm run build && serve -s build"
   },
   "keywords": [],
   "author": "",
@@ -19,9 +22,14 @@
   },
   "dependencies": {
     "apollo-server-express": "^3.12.0",
+    "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
     "express": "^4.18.2",
-    "jsonwebtoken": "^9.0.1"
+    "jsonwebtoken": "^9.0.1",
+    "multer": "^1.4.5-lts.1",
+    "react": "^18.2.0",
+    "react-router-dom": "^6.14.2",
+    "serve": "^14.2.0"
   }
 }

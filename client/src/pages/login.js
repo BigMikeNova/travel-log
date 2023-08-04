@@ -1,11 +1,11 @@
-// src/Login.js
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const history = useHistory();
+  const history = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [profilePicture, setProfilePicture] = useState(null); // Add this state for the image
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -17,34 +17,41 @@ const Login = () => {
     }
 
     try {
-        // Assuming you have a server endpoint for authentication
-        const response = await fetch('/api/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ email, password }),
-        });
-  
-        const data = await response.json();
-  
-        if (response.ok) {
-          // Authentication successful, redirect to the dashboard or other page
-          history.push('/home');
-        } else {
-          // Authentication failed, display an error message
-          alert(data.message);
-        }
-      } catch (error) {
-        // Handle any network or server-side errors
-        console.error('Error occurred:', error);
-      }
-    };
+      // Assuming you have a server endpoint for authentication
+      const formData = new FormData();
+      formData.append('email', email);
+      formData.append('password', password);
+      formData.append('profilePicture', profilePicture); // Append the image file to the FormData
 
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Authentication successful, redirect to the dashboard or other page
+        history.push('/home');
+      } else {
+        // Authentication failed, display an error message
+        alert(data.message);
+      }
+    } catch (error) {
+      // Handle any network or server-side errors
+      console.error('Error occurred:', error);
+    }
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setProfilePicture(file);
+  };
 
   return (
-    <body className="bg-gray-10">
-      <div className="flex justify-center h-screen w-screen items-center">
+    <>
+      {/* Your login page content goes here */}
+      <div className="bg-gray-10 flex justify-center h-screen w-screen items-center">
         <div className="w-full md:w-1/2 flex flex-col items-center">
           {/* text login */}
           <h1 className="text-center text-2xl font-bold text-gray-600 mb-6">LOGIN</h1>
@@ -93,7 +100,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </body>
+    </>
   );
 };
 
