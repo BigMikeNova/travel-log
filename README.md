@@ -1,76 +1,81 @@
-# Travel Log App
+# Wanderlust - Share Your Travel Stories
 
-## Features
+Wanderlust is a social media platform built with the MERN stack (MongoDB, Express.js, React.js, Node.js) for travelers to share their stories, exchange travel advice, and connect with like-minded people around the world. Developed by Mike Novachek, Claudia Gillota, and Dorian Walker.
 
-```
-Where: Location, biome (beach, mountains, forest, city, etc...)
-What: Packing Essentials, must see's, must do's, what to eat
-How: Travel Deals, modes of transport (public trans, uber/lyft, boat, plane)
-Accomodations: Hotel, camping, hostel, bnb
-Price: affordability score
-Length of stay
-Safety Score (1-5)
-Walkability Score (1-5)
-Peak season
-Currency type
-IMAGES
-```
+## Table of Contents
+
+1. [Description](#description)
+2. [User Flow](#user-flow)
+3. [Features](#features)
+4. [Installation](#installation)
+5. [Usage](#usage)
+6. [Contribution](#contribution)
+7. [Tests](#tests)
+8. [License](#license)
+9. [Contact](#contact)
+
+## Description
+
+Wanderlust aims to create a community for travel enthusiasts where they can share their experiences, interact with posts by liking and commenting, and follow other users. It offers a safe and fun platform to express your wanderlust, inspire others, and be inspired.
 
 ## User Flow
 
-![image](https://github.com/BigMikeNova/travel-log/assets/125073452/c1dbc340-784c-4a4e-a93b-a6a3fdfeda33)
+![Alt text](image.png)
 
-## ToDo's
+## Features
 
-```
-Post Schemas
-User Search Queries
-  location
-  affordability
-  walkability
-  safety
-  user
-login creds (auth)
-user creation
-user linking
-comments
-```
+1. User Authentication
+2. Create, Read, Update, Delete (CRUD) operations for posts
+3. Like, Comment on posts
+4. Follow/Unfollow users
+5. Travel Guides and Tips
+6. Rich Text Editor for detailed stories
+7. Search functionality for users and posts
+8. Responsive UI design
 
-## Starter Issues
+## Installation
 
-```
-database creation
-server set up
-front end look and functionality
-```
+To install and run Wanderlust on your local machine:
 
-## Homepage look
+1. Clone the repository:
 
-```
-search bar
-followed user posts (sorted by date/time posted)
-(time permitted) suggested users posts
+```bash
+git clone https://github.com/<your-github-username>/Wanderlust.git
+Change your directory to the cloned repo:
+cd Wanderlust
+Install the dependencies:
+npm install
+Create a .env file in the root directory of the project and add your MongoDB connection string
+MONGO_DB_CONNECTION_STRING=your_connection_string_here
+Run the server:
+npm start
 ```
 
-![image](https://github.com/BigMikeNova/travel-log/assets/125073452/3dd32370-bea7-4ab2-b1d5-f702e243f5e4)
+## Usage
 
+Once you've started the server, navigate to `http://localhost:3000` in your browser to start exploring the Wanderlust app.
 
-## Profile page
+## Contribution
 
+Wanderlust was built by Mike Novachek, Claudia Gillota, and Dorian Walker. If you wish to contribute, please feel free to fork the repository and submit a pull request. For major changes, please open an issue first to discuss what you would like to change.
+
+## Tests
+
+For running tests, please use:
+
+```bash
+npm run test
 ```
-Username
-profile pic
-travel wishlist on the main tab
-user posts secondary tab
-follow list
-```
-![image](https://github.com/BigMikeNova/travel-log/assets/125073452/53c3532a-1a27-44dd-8382-69ba63c93b38)
+## License
 
-## Login Page
+Wanderlust is released under the [MIT License](LICENSE).
 
-```
-Username
-Password
-```
-![image](https://github.com/BigMikeNova/travel-log/assets/125073452/23eaf9ed-c71e-40c8-9693-48edf2a2da7d)
+## Contact
 
+If you have any questions or concerns, please feel free to reach out.
+
+- Mike Novachek: mike.novachek@gmail.com
+- Claudia Gillota: cgillota@gmail.com
+- Dorian Walker: dorianwalker.notes@me.com
+
+Thank you for choosing Wanderlust. Enjoy the journey!
