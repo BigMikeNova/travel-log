@@ -56,7 +56,7 @@ const Navbar = () => {
             },
           }}
         >
-          The Travel Log
+          Wanderlust
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween
