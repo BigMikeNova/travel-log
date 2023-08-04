@@ -13,7 +13,7 @@ const LoginPage = () => {
         textAlign="center"
       >
         <Typography fontWeight="bold" fontSize="32px" color="primary">
-         The Travel Log
+         Wanderlust
         </Typography>
       </Box>
 
@@ -25,7 +25,7 @@ const LoginPage = () => {
         backgroundColor={theme.palette.background.alt}
       >
         <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
-          You've found The Travel Log! The best place to share your travel experiences!
+          Wanderlust | The best place to share your travel experiences!
         </Typography>
         <Form />
       </Box>
