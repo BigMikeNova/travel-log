@@ -27,7 +27,7 @@ app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
 
 // File Storage
 const storage = multer.diskStorage({
-    destingation: function (req, file, cb) {
+    destination: function (req, file, cb) {
         cb(null, 'public/assets');
     },
     filename: function (req, file, cb) {
@@ -41,6 +41,7 @@ app.post('/auth/register', upload.single('picture'), register);
 
 // Routes
 app.use('/auth', authRoutes);
+app.use('/users', userRoutes);
 
 // Mongoose Connection  
 const PORT = process.env.PORT || 4001;
