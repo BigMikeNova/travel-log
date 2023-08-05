@@ -9,6 +9,7 @@ import morgan from 'morgan';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import authRoutes from './routes/auth.js';
+import usersRoutes from './routes/users.js';
 import { register } from './controllers/auth.js';
 
 // Config
@@ -40,8 +41,8 @@ const upload = multer({ storage });
 app.post('/auth/register', upload.single('picture'), register);
 
 // Routes
-app.use('/auth', authRoutes);
-app.use('/users', userRoutes);
+app.use('/auth', authRoutes); 
+app.use('/users', usersRoutes);
 
 // Mongoose Connection  
 const PORT = process.env.PORT || 4001;
@@ -50,4 +51,4 @@ mongoose.connect(process.env.MONGO_URL, {
     useUnifiedTopology: true,
 }).then(() => {
     app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
-}).catch((error) => {console.log('${error} connection dont work ma!')});
+}).catch((error) => {console.log('${error} connection failed')});
