@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom'; // <-- Corrected import
 import './index.css';
 import App from './App';
 import authReducer from "./state";
@@ -39,4 +39,3 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
-

@@ -8,6 +8,9 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { ApolloServer } from 'apollo-server-express';
+import typeDefs from './schema/typeDefs';
+import resolvers from './schema/resolvers';
 import authRoutes from './routes/auth.js';
 import usersRoutes from './routes/users.js';
 import postRoutes from './routes/post.js';
@@ -16,7 +19,7 @@ import { register } from './controllers/auth.js';
 // Config
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-dotenv.config;
+dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(helmet());
@@ -46,11 +49,25 @@ app.use('/auth', authRoutes);
 app.use('/users', usersRoutes);
 app.use('/posts', postRoutes);
 
-// Mongoose Connection  
+// Mongoose Connection
 const PORT = process.env.PORT || 4001;
 mongoose.connect(process.env.MONGO_URL || "mongodb://127.0.0.1:27017", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {
-    app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
-}).catch((error) => {console.log(`${error} connection failed`)}); 
+    console.log("MongoDB connected successfully");
+}).catch((error) => {
+    console.log(`${error} connection failed`);
+});
+
+// Apollo Server
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
+
+server.applyMiddleware({ app });
+
+app.listen(PORT, () => {
+  console.log(`Server running on port: ${PORT}`);
+});
