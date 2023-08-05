@@ -2,11 +2,17 @@ import mongoose from 'mongoose';
 
 const UserSchema = mongoose.Schema(
     {
-        username: {
+        firstName: {
             type: String,
             required: true,
             min: 3,
-            max: 20,
+            max: 30,
+        },
+        lastName: {
+            type: String,
+            required: true,
+            min: 1,
+            max: 30,
         },
         email: {
             type: String,

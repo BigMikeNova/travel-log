@@ -7,7 +7,8 @@ import User from '../models/user.js';
 export const register = async (req, res) => {
     try {
         const {
-            username,
+            firstName,
+            lastName,
             email,
             password,
             picturePath,
@@ -20,7 +21,8 @@ export const register = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, salt);
 
         const newUser = new User({
-            username,
+            firstName,
+            lastName,
             email,
             password: hashedPassword,
             picturePath,
