@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
+import "dotenv/config"
 
 // register
 
@@ -20,7 +21,7 @@ export const register = async (req, res) => {
         const salt = await bcrypt.genSalt();
         const hashedPassword = await bcrypt.hash(password, salt);
 
-        const newUser = new User({
+        const newUser = await User.create({
             firstName,
             lastName,
             email,
@@ -32,8 +33,8 @@ export const register = async (req, res) => {
             viewedProfile: Math.floor(Math.random() * 1000),
             impressions: Math.floor(Math.random() * 1000),
         });
-        const savedUser = await newUser.save();
-        res.status(201).json(savedUser);
+        // const savedUser = await newUser.save();
+        res.status(201).json(newUser);
     } catch (error) {
         res.status(500).json(error);
     }
@@ -54,6 +55,7 @@ export const login = async (req, res) => {
         delete user.password;
         res.status(200).json({ user, token });
     } catch (error) {
+        console.log(error);
         res.status(500).json(error);
     }
 };
