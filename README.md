@@ -40,7 +40,7 @@ To install and run Wanderlust on your local machine:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/<your-github-username>/Wanderlust.git
+git clone https://github.com/BigMikeNova/Wanderlust.git
 Change your directory to the cloned repo:
 cd Wanderlust
 Install the dependencies:
