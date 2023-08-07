@@ -6,13 +6,15 @@ Wanderlust is a social media platform built with the MERN stack (MongoDB, Expres
 
 1. [Description](#description)
 2. [User Flow](#user-flow)
-3. [Features](#features)
-4. [Installation](#installation)
-5. [Usage](#usage)
-6. [Contribution](#contribution)
-7. [Tests](#tests)
-8. [License](#license)
-9. [Contact](#contact)
+3. [Slide Presentation] (#presentation)
+4. [Features](#features)
+5. [Installation](#installation)
+6. [Usage](#usage)
+7. [Contribution](#contribution)
+8. [Tests](#tests)
+9. [License](#license)
+10. [Contact](#contact)
+
 
 ## Description
 
@@ -32,6 +34,11 @@ Wanderlust aims to create a community for travel enthusiasts where they can shar
 6. Rich Text Editor for detailed stories
 7. Search functionality for users and posts
 8. Responsive UI design
+
+## Presentation
+
+https://docs.google.com/presentation/d/e/2PACX-1vQcCoOujQfn1o-qeiAU9mge_BnSBLvJPFHB4ghn_mU_d9yctLE7JSv_NPEE28_YW1dn6lwQe61zGRLh/pub?start=false&loop=false&delayms=60000
+
 
 ## Installation
 
