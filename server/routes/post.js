@@ -1,8 +1,11 @@
 import express from "express";
-import { getFeedPosts, getUserPosts, likePost } from "../controllers/post.js";
+import { getFeedPosts, getUserPosts, likePost, createPost } from "../controllers/post.js";
 import { verifyToken } from "../middleware/auth.js";
 
 const router = express.Router();
+
+/* CREATE */
+router.post("/", createPost);
 
 /* READ */
 router.get("/", verifyToken, getFeedPosts);
