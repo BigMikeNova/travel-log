@@ -5,7 +5,7 @@ import PostWidget from "./PostWidget";
 
 const PostsWidget = ({ userId, isProfile = false }) => {
   const dispatch = useDispatch();
-  const posts = useSelector((state) => state.posts);
+  const posts = useSelector((state) => state.posts) ?? { posts: [] };
   const token = useSelector((state) => state.token);
 
   const getPosts = async () => {
@@ -13,6 +13,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });
+    if (!response.ok) return;
     const data = await response.json();
     dispatch(setPosts({ posts: data }));
   };
@@ -25,8 +26,10 @@ const PostsWidget = ({ userId, isProfile = false }) => {
         headers: { Authorization: `Bearer ${token}` },
       }
     );
-    const data = await response.json();
-    dispatch(setPosts({ posts: data }));
+    if (response.ok) {
+      const data = await response.json();
+      dispatch(setPosts({ posts: data }));
+    }
   };
 
   useEffect(() => {
@@ -36,10 +39,18 @@ const PostsWidget = ({ userId, isProfile = false }) => {
       getPosts();
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
+  let hack;
+  if (posts.map) {
+    hack = posts;
+  } else if (posts?.posts) {
+    hack = posts.posts;
+  } else {
+    hack = [];
+  }
+  console.log(hack);
   return (
     <>
-      {posts.map(
+      {hack.map(
         ({
           _id,
           userId,
