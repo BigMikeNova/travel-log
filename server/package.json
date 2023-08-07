@@ -24,7 +24,14 @@
     "start": "nodemon index.js",
     "watch": "nodemon"
   },
-  "keywords": [],
+  "keywords": [
+    "node",
+    "upload",
+    "multiple",
+    "files",
+    "images",
+    "mongodb"
+  ],
   "author": "Mike Novachek, Claudia Gillota, Dorian Walker",
   "license": "MIT"
 }
