@@ -48,7 +48,7 @@ app.use('/posts', postRoutes);
 
 // Mongoose Connection  
 const PORT = process.env.PORT || 4001;
-mongoose.connect(process.env.MONGO_URL || "mongodb://127.0.0.1:27017", {
+mongoose.connect(process.env.MONGO_URI || "mongodb://127.0.0.1:27017/travelerDB", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {
