@@ -6,6 +6,10 @@ export const createPost = async (req, res) => {
   try {
     const { userId, description, picturePath } = req.body;
     const user = await User.findById(userId);
+    if (!user) {
+      res.status(400).json({ message: `User with id ${userId} not found.`});
+      return;
+    }
     const newPost = new Post({
       userId,
       firstName: user.firstName,
@@ -32,7 +36,7 @@ export const getFeedPosts = async (req, res) => {
     const post = await Post.find();
     res.status(200).json(post);
   } catch (err) {
-    res.status(404).json({ message: err.message });
+    res.status(500).json({ message: err.message });
   }
 };
 
@@ -42,7 +46,7 @@ export const getUserPosts = async (req, res) => {
     const post = await Post.find({ userId });
     res.status(200).json(post);
   } catch (err) {
-    res.status(404).json({ message: err.message });
+    res.status(500).json({ message: err.message });
   }
 };
 

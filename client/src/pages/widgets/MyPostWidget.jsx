@@ -38,21 +38,17 @@ import {
     const medium = palette.neutral.medium;
   
     const handlePost = async () => {
-      const formData = new FormData();
-      formData.append("userId", _id);
-      formData.append("description", post);
-      if (image) {
-        formData.append("picture", image);
-        formData.append("picturePath", image.name);
-      }
+      const body = {
+        userId: _id,
+        description: post
+      };
   
-      const response = await fetch(`http://localhost:3001/posts`, {
+      await fetch(`http://localhost:3001/posts`, {
         method: "POST",
-        headers: { Authorization: `Bearer ${token}` },
-        body: formData,
+        headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+        body: JSON.stringify(body),
       });
-      const posts = await response.json();
-      dispatch(setPosts({ posts }));
+      // dispatch(setPosts(posts)); // <-- this is messing with you
       setImage(null);
       setPost("");
     };

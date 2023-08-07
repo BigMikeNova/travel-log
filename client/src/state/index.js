@@ -26,7 +26,7 @@ export const authSlice = createSlice({
             if (state.user) {
                 state.user.friends = action.payload;
             } else {
-                console.error('404 Friends not found :(')
+                console.error('Friends not found :(')
             }
         },
         setPosts: (state, action) => {
